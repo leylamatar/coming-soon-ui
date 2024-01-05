@@ -1,0 +1,166 @@
+@import "../../../styles/colors";
+
+:host {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  perspective: 500px;
+  aspect-ratio: 1 / 1;
+  font-size: 6rem;
+  border-radius: 0.5rem;
+  color: rgb(196, 207, 219);
+  box-shadow: 0 0.7rem 0 $very-dark-black-blue;
+  width: 160px;
+
+  @media screen and (max-width: 45rem) {
+    font-size: 2rem;
+    perspective: 100px;
+  }
+
+  //cart flip circles
+  &::before {
+    content: "";
+    position: absolute;
+    width: 5%;
+    aspect-ratio: 1 / 1;
+    background-color: $very-dark-black-blue;
+    border-radius: 0 100% 0 0;
+    bottom: 50%;
+    left: 0;
+    z-index: 2;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 5%;
+    aspect-ratio: 1 / 1;
+    background-color: $very-dark-black-blue;
+    border-radius: 100% 0 0 0;
+    bottom: 50%;
+    right: 0;
+    z-index: 2;
+  }
+
+  .card-half {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    backface-visibility: hidden;
+
+
+    // card bottom 
+    &.bottom {
+      bottom: 0;
+      background-color: #171718;
+      border-bottom-left-radius: inherit;
+      border-bottom-right-radius: inherit;
+      transform-origin: top;
+      z-index: 2;
+      box-shadow: 0 -1px 2px $very-dark-black-blue;
+
+      &.flip {
+        rotate: x 180deg;
+        z-index: 2;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 5%;
+        aspect-ratio: 1 / 1;
+        background-color: $very-dark-black-blue;
+        border-radius: 0 0 100% 0;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 5%;
+        aspect-ratio: 1 / 1;
+        background-color: $very-dark-black-blue;
+        border-radius: 0 0 0 100%;
+        top: 0;
+        right: 0;
+        z-index: 2;
+      }
+
+      .content {
+        position: absolute;
+        inset: -100% 0 0 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: darken(rgb(196, 207, 219), 4);
+      }
+    }
+
+    &.top {
+      top: 0;
+      background-color: #18191a;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      transform-origin: bottom;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 5%;
+        aspect-ratio: 1 / 1;
+        background-color: $very-dark-black-blue;
+        border-radius: 0 100% 0 0;
+        bottom: 0;
+        left: 10;
+        z-index: 2;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 5%;
+        aspect-ratio: 1 / 1;
+        background-color: $very-dark-black-blue;
+        border-radius: 100% 0 0 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+      }
+
+      .content {
+        position: absolute;
+        inset: 0 0 -100% 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.label {
+  color: rgb(226, 226, 226);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  margin-top: 15px;
+
+  @media screen and (max-width: 45rem) {
+    font-size: 0.3rem;
+  }
+}

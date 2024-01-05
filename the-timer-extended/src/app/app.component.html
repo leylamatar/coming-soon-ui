@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="d-flex align-items-center gap-2">
+    <input type="datetime-local" [(ngModel)]="selectedDate" class="inputDate" />
+
+    <section>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      
+    </section>
+
+  </div>
+
+  <app-countdown-timer [launchDate]="selectedDate"></app-countdown-timer>
+</div>

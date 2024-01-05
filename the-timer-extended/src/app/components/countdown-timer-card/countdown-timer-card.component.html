@@ -1,0 +1,17 @@
+<div class="card" [@flip]="previousValue != value" (@flip.done)="previousValue = value">
+  <div class="card-half top">
+    <div class="content">{{value}}</div>
+  </div>
+  <div class="card-half bottom">
+    <div class="content">{{previousValue}}</div>
+  </div>
+  <div class="card-half top flip">
+    <div class="content">{{previousValue}}</div>
+  </div>
+  <div class="card-half bottom flip">
+    <div class="content">{{value}}</div>
+  </div>
+</div>
+<div class="label">
+  {{label}}
+</div>

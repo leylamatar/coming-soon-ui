@@ -1,0 +1,237 @@
+@import "../styles/colors";
+
+/* Global styles for the host element */
+:host {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15rem 0rem 2rem;
+  background: url("../assets/images/bg-stars.svg") no-repeat, $very-dark-blue;
+  background-size: contain;
+  width: auto;
+
+  @media screen and (max-width: 45rem) {
+    background-size: 300%;
+    background-position: bottom 0 right 5px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body,
+html {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+
+
+.main {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+
+/* Styles for the input element with class inputDate */
+.inputDate {
+  width: 300px;
+  height: 50px;
+  border-radius: 11px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  background-color: transparent;
+  color: rgb(196, 207, 219);
+  border: 0.5px solid rgb(196, 207, 219);
+  padding-right: 15px;
+}
+
+/* Styles for the liquid button */
+.liq {
+  position: relative;
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 200px;
+  overflow: hidden;
+  border-radius: 11px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.liq .liqu {
+  position: relative;
+  color: rgb(188, 194, 201);
+  letter-spacing: 7px;
+  z-index: 1;
+  font-weight: 600px;
+}
+
+.liq .liquid {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: rgb(23, 24, 31);
+  box-shadow: inset 0 0 50px rgba(26, 21, 21, 0.5);
+  transition: 0.5s;
+}
+
+.liq .liquid::after,
+.liq .liquid::before {
+  content: '';
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: rgb(30, 31, 42);
+}
+
+.liq .liquid::before {
+  border-radius: 45%;
+  background: rgb(30, 31, 42);
+  animation: animate1 5s linear infinite;
+}
+
+.liq .liquid::after {
+  border-radius: 40%;
+  background: rgba(228, 213, 213, 0.5);
+  animation: animate2 10s linear infinite;
+}
+
+.liq:hover .liquid {
+  top: -120px;
+}
+
+//icon color
+.inputDate::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(1);
+}
+
+
+/* Keyframes for liquid animation */
+@keyframes animate1 {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+/* Styles for the star animation */
+section {
+  position: absolute;
+  top: 10px;
+  background-size: contain;
+  animation: starAnimation 5s linear inherit;
+
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.678);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.664);
+  animation: starAnimation 5s ease-in-out infinite;
+}
+
+//
+.star::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, #b8b8b8, rgb(178, 178, 178),transparent);
+}
+
+
+/* Keyframes for star animation */
+@keyframes starAnimation {
+  0% {
+    transform: rotate(315deg) translate(0);
+  }
+
+  100% {
+    transform: rotate(315deg) translate(-1000px);
+  }
+}
+
+/* Individual star positions */
+.star:nth-child(1) {
+  top: 100px;
+  right: 0;
+
+}
+
+.star:nth-child(2) {
+  top: 20;
+  right: 400px;
+
+}
+
+.star:nth-child(3) {
+  top: 20px;
+  left: 800px;
+  animation: starAnimation 3s ease-in-out infinite;
+}
+
+.star:nth-child(4) {
+  top: 80px;
+  right: 160px;
+  animation: starAnimation 4s ease-in-out infinite;
+
+}
+
+.star:nth-child(5) {
+  top: 50px;
+  right: 200px;
+
+}
+
+.star:nth-child(6) {
+  top: 100px;
+  left: 900px;
+
+}
+
+.star:nth-child(7) {
+  top: 200px;
+  left: 37px;
+
+}
+
+.star:nth-child(8) {
+  top: 10px;
+  left: 670px;
+
+}

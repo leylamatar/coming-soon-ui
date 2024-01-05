@@ -1,0 +1,8 @@
+:host {
+  display:grid;
+  gap: 12px;
+  grid-template-columns: repeat(6, minmax(0, 3fr));
+  width: max-content;
+
+}
+// bu stil kuralının Angular bileşeninin kendisi üzerinde uygulanacağını belirtir.
